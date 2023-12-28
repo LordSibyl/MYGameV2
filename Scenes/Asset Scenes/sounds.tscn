@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://jef51qxvfbsp"]
+
+[ext_resource type="AudioStream" uid="uid://bf31lh0d4ffq8" path="res://Assets/door_open.ogg" id="1_6722u"]
+[ext_resource type="AudioStream" uid="uid://cefo3wjoseu7i" path="res://Assets/door_close.ogg" id="2_tu1xo"]
+[ext_resource type="AudioStream" uid="uid://bsh8no3y3uf53" path="res://Assets/minecraft-chest-open-made-with-Voicemod-technology.mp3" id="3_7sfxi"]
+[ext_resource type="AudioStream" uid="uid://bnme151ua7r4h" path="res://Assets/coin-drop-39914.mp3" id="4_wlpa1"]
+[ext_resource type="AudioStream" uid="uid://dlrgxaluy52s6" path="res://Assets/very-old-lift-33242.mp3" id="5_i2ho7"]
+
+[node name="Sounds" type="Node"]
+
+[node name="DoorOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_6722u")
+volume_db = -15.0
+
+[node name="DoorClose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tu1xo")
+volume_db = -15.0
+
+[node name="ChestOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7sfxi")
+volume_db = -15.0
+
+[node name="CoinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wlpa1")
+volume_db = -15.0
+
+[node name="ElevatorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_i2ho7")

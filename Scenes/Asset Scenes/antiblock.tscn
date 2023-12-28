@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://mhxtbw5sn014"]
+
+[ext_resource type="Script" path="res://Scenes/Asset Scenes/antiblock.gd" id="1_bi3ku"]
+[ext_resource type="Texture2D" uid="uid://7j6a8ulh76ib" path="res://Assets/block.png" id="1_yeu8r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtm6u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf8ce"]
+size = Vector2(28, 28)
+
+[node name="AntiBlock" type="RigidBody2D"]
+collision_layer = 17041
+collision_mask = 17040
+mass = 0.05
+continuous_cd = 2
+contact_monitor = true
+can_sleep = false
+lock_rotation = true
+script = ExtResource("1_bi3ku")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.49012e-07, 2.08616e-07)
+rotation = 3.14159
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_yeu8r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wtm6u")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_mf8ce")

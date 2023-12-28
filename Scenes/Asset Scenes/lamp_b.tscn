@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://yaykq38vb5pt"]
+
+[sub_resource type="Gradient" id="Gradient_n5c0l"]
+offsets = PackedFloat32Array(0, 0.774194)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2w2py"]
+gradient = SubResource("Gradient_n5c0l")
+fill = 1
+fill_from = Vector2(0.53211, 0.495413)
+
+[node name="LampB" type="PointLight2D"]
+color = Color(1, 1, 0.788235, 1)
+texture = SubResource("GradientTexture2D_2w2py")

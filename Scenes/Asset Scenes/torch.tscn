@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cytc6dwvurhlh"]
+
+[ext_resource type="Texture2D" uid="uid://du5ojaowdmxeo" path="res://Assets/Torch_29_JE3_BE2.webp" id="1_578cs"]
+[ext_resource type="Script" path="res://Scenes/Asset Scenes/torch.gd" id="1_b6jho"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0oonb"]
+size = Vector2(10, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ta0f5"]
+size = Vector2(4, 17)
+
+[sub_resource type="Gradient" id="Gradient_7qt2m"]
+offsets = PackedFloat32Array(0, 0.751179)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_poau4"]
+gradient = SubResource("Gradient_7qt2m")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Torch" type="RigidBody2D"]
+collision_layer = 16528
+collision_mask = 16528
+continuous_cd = 1
+contact_monitor = true
+lock_rotation = true
+script = ExtResource("1_b6jho")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_0oonb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_ta0f5")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -12)
+scale = Vector2(4, 4)
+color = Color(1, 1, 0.501961, 1)
+texture = SubResource("GradientTexture2D_poau4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.0777778)
+texture = ExtResource("1_578cs")

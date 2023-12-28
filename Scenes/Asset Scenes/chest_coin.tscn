@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://crvttie4u6co6"]
+
+[ext_resource type="Script" path="res://Scenes/Asset Scenes/chest_coin.gd" id="1_na06s"]
+[ext_resource type="Texture2D" uid="uid://dlwlxdb1e62m8" path="res://Assets/Coin Animation.png" id="2_2cc8s"]
+[ext_resource type="PackedScene" uid="uid://g1f5uc1rwi81" path="res://Scenes/Asset Scenes/lamp_a.tscn" id="3_n36m4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e6e8y"]
+radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oenkq"]
+atlas = ExtResource("2_2cc8s")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2n6f"]
+atlas = ExtResource("2_2cc8s")
+region = Rect2(16, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34gnf"]
+atlas = ExtResource("2_2cc8s")
+region = Rect2(32, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so0cn"]
+atlas = ExtResource("2_2cc8s")
+region = Rect2(48, 0, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xtpi3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oenkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2n6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34gnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_so0cn")
+}],
+"loop": true,
+"name": &"Spin",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckyx4"]
+size = Vector2(12, 12)
+
+[node name="ChestCoin" type="RigidBody2D"]
+collision_layer = 20624
+collision_mask = 20624
+continuous_cd = 1
+contact_monitor = true
+lock_rotation = true
+script = ExtResource("1_na06s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e6e8y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xtpi3")
+animation = &"Spin"
+autoplay = "Spin"
+frame_progress = 0.430976
+
+[node name="LampA" parent="AnimatedSprite2D" instance=ExtResource("3_n36m4")]
+scale = Vector2(0.2, 0.2)
+energy = 0.5
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ckyx4")

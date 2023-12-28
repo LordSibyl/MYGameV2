@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cq8cf7pj0lreu"]
+
+[ext_resource type="Script" path="res://Scenes/Asset Scenes/portal_b.gd" id="1_7cstf"]
+[ext_resource type="Texture2D" uid="uid://djlxnbt2o2ocp" path="res://Assets/Portal Blue.png" id="2_juwe3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0cwa"]
+size = Vector2(8, 48)
+
+[sub_resource type="Gradient" id="Gradient_ds55y"]
+offsets = PackedFloat32Array(0, 0.709677)
+colors = PackedColorArray(0.947368, 0.947368, 0.947368, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1lp47"]
+gradient = SubResource("Gradient_ds55y")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="PortalB" type="Area2D"]
+collision_layer = 2097152
+collision_mask = 2097152
+script = ExtResource("1_7cstf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(0.0547945, 0.0982456)
+texture = ExtResource("2_juwe3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n0cwa")
+
+[node name="ExitB" type="Marker2D" parent="."]
+position = Vector2(32, 12)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(8.34465e-07, -2.86102e-06)
+scale = Vector2(0.3125, 0.90625)
+texture = SubResource("GradientTexture2D_1lp47")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
